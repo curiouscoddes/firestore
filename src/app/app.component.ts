@@ -1,3 +1,6 @@
+import { CategoriesPage } from './../pages/categories/categories';
+import { ProductsPage } from './../pages/products/products';
+import { AddProductPage } from './../pages/add-product/add-product';
 import { SignUpPage } from './../pages/sign-up/sign-up';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -6,13 +9,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = SignUpPage;
+  rootPage: any = "SignInPage";
 
   pages: Array<{title: string, component: any}>;
 
@@ -22,7 +26,10 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      // { title: 'List', component: ListPage }, 
+      { title: 'Categories', component: CategoriesPage},
+      { title: 'AddProduct',component: AddProductPage },
+      { title: 'Products', component: ProductsPage}
     ];
 
   }

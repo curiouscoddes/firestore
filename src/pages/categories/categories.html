@@ -6,13 +6,37 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Categories</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Categories</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+    <ion-card>
+        <ion-card-header>
+            Categories
+        </ion-card-header>
+
+        <ion-list>
+
+
+            <div class="demo-list-action mdl-list">
+                <div class="mdl-list__item" *ngFor="let category of categories | async">
+                    <div (click)="goToCategory(category.id)">
+                        <span class="mdl-list__item-primary-content">
+                          <i class="material-icons mdl-list__item-avatar">person</i>
+                          <span>{{ category.title }}</span>
+                        </span>
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    </div>
+                </div>
+
+            </div>
+
+        </ion-list>
+    </ion-card>
 
 </ion-content>

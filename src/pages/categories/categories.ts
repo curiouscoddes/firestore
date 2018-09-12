@@ -1,4 +1,8 @@
+import { Observable } from 'rxjs';
+import { CategoriesProvider } from './../../providers/categories/categories';
+import { Category } from './../../models/category';
 import { Component } from '@angular/core';
+
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -15,11 +19,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CategoriesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  categories: Observable<Category[]>
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public categoryService: CategoriesProvider) {
   }
 
+  ngOnInit() {
+    this.categories = this.categoryService.getCategories$(ref => ref);
+
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoriesPage');
+  }
+
+  goToCategory(id){
+    this.navCtrl.setRoot('ProductsPage',{categoryId: id})
   }
 
 }

@@ -27,7 +27,7 @@ export class SignInPage {
   async login() {
     try{
       await this.authService.loginUser(this.creds);
-      this.navCtrl.setRoot('ProductsPage');
+      this.navCtrl.setRoot('CategoriesPage');
 
     } catch(error) {
       console.log(error);

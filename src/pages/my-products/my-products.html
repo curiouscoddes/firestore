@@ -1,5 +1,5 @@
 <!--
-  Generated template for the ProductsPage page.
+  Generated template for the MyProductsPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>Products</ion-title>
+        <ion-title>MyProducts</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -15,7 +15,7 @@
 
 <ion-content padding>
 
-    <ion-card *ngFor="let product of products$ | async">
+    <ion-card *ngFor="let product of myProducts$ | async">
         <ion-card-header>
             {{product.name}}
         </ion-card-header>

@@ -1,3 +1,14 @@
 page-add-product {
-
+    .coverimg {
+        height: 200px;
+        width: 23%;
+        border-radius: 5px;
+        margin: auto;
+        img {
+            height: 100%;
+            width: 100%;
+            border-radius: 7px;
+            margin: auto;
+        }
+    }
 }

@@ -1,3 +1,5 @@
+import { CategoriesPage } from './../pages/categories/categories';
+import { ProductPage } from './../pages/product/product';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -13,13 +15,23 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { firebaseConfig } from './credentials';
+import { CategoriesProvider } from '../providers/categories/categories';
+import { AddProductPage } from '../pages/add-product/add-product';
+import { ImghandlerProvider } from '../providers/imghandler/imghandler';
+import { File } from '@ionic-native/file';
+import { FileChooser } from '@ionic-native/file-chooser';
+import { FilePath  } from '@ionic-native/file-path';
+import { ProductProvider } from '../providers/product/product';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    SignUpPage
+    SignUpPage,
+    AddProductPage,
+    ProductPage,
+    CategoriesPage
   ],
   imports: [
     BrowserModule,
@@ -33,13 +45,22 @@ import { firebaseConfig } from './credentials';
     MyApp,
     HomePage,
     ListPage,
-    SignUpPage
+    SignUpPage,
+    AddProductPage,
+    ProductPage,
+    CategoriesPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    File,
+    FileChooser,
+    FilePath,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    CategoriesProvider,
+    ImghandlerProvider,
+    ProductProvider
   ]
 })
 export class AppModule {}
