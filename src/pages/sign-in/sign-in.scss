@@ -1,0 +1,28 @@
+page-sign-in {
+    .card-background-page {
+        background-image: url('./../../assets/imgs/glowing-blue.png');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        ion-card .card {
+            position: relative;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .card-title {
+            position: absolute;
+            top: 10%;
+            font-size: 2.0em;
+            width: 100%;
+            font-weight: bold;
+            color: #fff;
+        }
+        .card-subtitle {
+            font-size: 1.0em;
+            position: absolute;
+            top: 52%;
+            width: 100%;
+            color: #fff;
+        }
+    }
+}
