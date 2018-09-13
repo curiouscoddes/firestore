@@ -1,3 +1,4 @@
+import { AngularFirestore } from 'angularfire2/firestore';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { FilePath } from '@ionic-native/file-path';
 import { Injectable } from '@angular/core';
@@ -13,7 +14,7 @@ import * as firebase from 'firebase';
 export class ImghandlerProvider {
   nativepath:any;
   firestorage = firebase.storage();
-  constructor(public filechooser: FileChooser) {
+  constructor(public filechooser: FileChooser, public afs: AngularFirestore) {
     console.log('image handler fired');
   }
 
@@ -29,10 +30,12 @@ export class ImghandlerProvider {
 
               reader.onloadend = (evt: any) => {
                 var imgBlob = new Blob([evt.target.result], { type: 'image/jpeg' });
+
+                let randomString = Math.random().toString(36).substring(7);
                 
-                var imageStore = this.firestorage.ref('/productimages').child(firebase.auth().currentUser.uid);
+                var imageStore = this.firestorage.ref('/productimages').child('prod'+randomString);
                 imageStore.put(imgBlob).then((res) => {
-                  this.firestorage.ref('/productimages').child(firebase.auth().currentUser.uid).getDownloadURL().then((url) => {
+                  this.firestorage.ref('/productimages').getDownloadURL().then((url) => {
                     resolve(url);
                   }).catch((err) => {
                       reject(err);

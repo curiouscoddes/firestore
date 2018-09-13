@@ -18,7 +18,7 @@ import { ProductProvider } from './../../providers/product/product';
 })
 export class ProductsPage {
 
-  products$: Observable<Products>;
+  products$: Observable<Products[]>;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public productService: ProductProvider) {
   }
@@ -28,7 +28,7 @@ export class ProductsPage {
   }
 
   ngOnInit() {
-    this.productService.getAllProducts(ref => ref);
+    this.products$ =this.productService.getAllProducts(ref => ref);
   }
 
 }

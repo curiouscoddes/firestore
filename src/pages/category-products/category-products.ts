@@ -19,7 +19,7 @@ import * as firebase from 'firebase';
 })
 export class CategoryProductsPage {
   categoryId = null;
-  products$: Observable<Category[]>;
+  products$: Observable<Products[]>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public categoryService: CategoriesProvider) {
     this.categoryId = this.navParams.get('categoryId');
@@ -28,6 +28,8 @@ export class CategoryProductsPage {
 
   ngOnInit() {
     this.products$ = this.categoryService.getProductByCategory(this.categoryId).valueChanges();
+    console.log(this.products$);
+    console.log(this.categoryId);
   }  
 
   ionViewDidLoad() {

@@ -25,8 +25,32 @@ readonly path = 'Products';
     
   }
 
-  addnewProduct(data: Products): Promise<DocumentReference> {
-    return this.afs.collection<Products>(this.path).add(data);
+  addnewProduct(
+    category_id: string,
+    user_id: string,
+    imgUrl: string,
+    name: string,
+    brief_description: string,
+    description: string,
+    units: number,
+    measurement: string,
+    price: number,
+
+  ): Promise<void> {
+    const productId: string = this.afs.createId();
+    return this.afs.doc<Products>(`Products/${productId}`)
+    .set({
+    id: productId,
+    category_id,
+    user_id,
+    imgUrl,
+    name,
+    brief_description,
+    description,
+    units,
+    measurement,
+    price,
+    });
   }
 
   deleteProduct(id: string): Promise<void>{
@@ -53,7 +77,7 @@ readonly path = 'Products';
     return this.afs.collection<Products>('Products',
     ref => 
       ref
-        .where('user_id', '==', userId)
+        .where('user_id', '==',userId)
     );
   }
 

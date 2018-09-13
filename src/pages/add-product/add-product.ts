@@ -75,7 +75,17 @@ export class AddProductPage {
 
     console.log({name,brief_description,description,units,measurement,price,imgUrl,category_id,user_id});
 
-    this.productService.addnewProduct({name,brief_description,description,units,measurement,price,imgUrl,category_id,user_id}).then((res:any)=>{
+    // category_id,
+    // user_id,
+    // imgUrl,
+    // name,
+    // brief_description,
+    // description,
+    // units,
+    // measurement,
+    // price
+
+    this.productService.addnewProduct(category_id, user_id, imgUrl,name,brief_description,description,units,measurement,price).then((res:any)=>{
       
       this.navCtrl.push('MyProductsPage');
       

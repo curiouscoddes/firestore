@@ -1,3 +1,4 @@
+import { CategoriesPage } from './../categories/categories';
 import { AuthProvider } from './../../providers/auth/auth';
 import { Login } from './../../models/loginCreds';
 import { Component } from '@angular/core';
@@ -27,7 +28,7 @@ export class SignInPage {
   async login() {
     try{
       await this.authService.loginUser(this.creds);
-      this.navCtrl.setRoot('CategoriesPage');
+      this.navCtrl.setRoot(CategoriesPage);
 
     } catch(error) {
       console.log(error);

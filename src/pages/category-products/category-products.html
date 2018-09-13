@@ -6,13 +6,43 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>CategoryProducts</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>CategoryProducts</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    cATEGORY
+    <ion-card *ngFor="let product of products$ | async">
+        <ion-card-header>
+            {{product.name}}
+        </ion-card-header>
+        <div class="img">
+            <img src="{{ product.imgUrl }}">
+        </div>
+
+        <ion-card-content>
+            <div class="description">
+                <p>{{ product.brief_description }}</p>
+
+            </div>
+
+            <div class="separate">
+                <ion-row class="product_details">
+                    <ion-col>
+                        <!-- <p class="quantity">Quantity:<span> {{product.units}}</span></p> -->
+                    </ion-col>
+                    <ion-col class="price">
+                        <p class="price">Price: <span>kshs {{ product.price }}</span></p>
+                    </ion-col>
+                </ion-row>
+            </div>
+            <ion-row>
+                <button ion-button full>Add to cart</button>
+            </ion-row>
+        </ion-card-content>
+    </ion-card>
 
 </ion-content>

@@ -1,13 +1,10 @@
 import { CategoriesPage } from './../pages/categories/categories';
-import { ProductPage } from './../pages/product/product';
+import { ProductsPage } from './../pages/products/products';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { SignUpPage } from '../pages/sign-up/sign-up';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
@@ -25,13 +22,13 @@ import { ProductProvider } from '../providers/product/product';
 
 @NgModule({
   declarations: [
+
     MyApp,
+    CategoriesPage,
     HomePage,
-    ListPage,
-    SignUpPage,
     AddProductPage,
-    ProductPage,
-    CategoriesPage
+    ProductsPage
+   
   ],
   imports: [
     BrowserModule,
@@ -44,11 +41,10 @@ import { ProductProvider } from '../providers/product/product';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
-    SignUpPage,
     AddProductPage,
-    ProductPage,
-    CategoriesPage
+    CategoriesPage,
+    ProductsPage
+   
   ],
   providers: [
     StatusBar,

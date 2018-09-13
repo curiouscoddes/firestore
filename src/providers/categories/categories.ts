@@ -1,3 +1,4 @@
+import { Products } from './../../models/product.model';
 import { Category } from './../../models/category';
 import { AngularFirestore, QueryFn, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Injectable } from '@angular/core';
@@ -34,11 +35,12 @@ readonly path = "Categories";
     })
   }
 
-  getProductByCategory(categoryId: string): AngularFirestoreCollection<Category> {
-    return this.afs.collection<Category>('Products',
+  getProductByCategory(categoryId: string): AngularFirestoreCollection<Products> {
+    return this.afs.collection<Products>('Products',
     ref => 
     ref
-    .where('category', '==',categoryId));
+    .where('category_id', '==',categoryId));
+
   }
 
 }

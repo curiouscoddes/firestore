@@ -25,7 +25,7 @@ export class MyProductsPage {
   }
 
   ngOnInit() {
-    this.productService.getUserProducts(firebase.auth().currentUser.uid);
+   this.myProducts$=this.productService.getUserProducts(firebase.auth().currentUser.uid).valueChanges();
   }  
 
   ionViewDidLoad() {
