@@ -35,7 +35,7 @@ export class ImghandlerProvider {
                 
                 var imageStore = this.firestorage.ref('/productimages').child('prod'+randomString);
                 imageStore.put(imgBlob).then((res) => {
-                  this.firestorage.ref('/productimages').getDownloadURL().then((url) => {
+                  this.firestorage.ref('/productimages').child('prod'+randomString).getDownloadURL().then((url) => {
                     resolve(url);
                   }).catch((err) => {
                       reject(err);

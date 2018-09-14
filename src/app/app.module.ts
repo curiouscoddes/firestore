@@ -1,3 +1,6 @@
+import { SortPipe } from './../pipes/sort/sort';
+import { IonicStorageModule, Storage } from '@ionic/storage';
+import { PipesModule } from './../pipes/pipes.module';
 import { CategoriesPage } from './../pages/categories/categories';
 import { ProductsPage } from './../pages/products/products';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,6 +22,11 @@ import { File } from '@ionic-native/file';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { FilePath  } from '@ionic-native/file-path';
 import { ProductProvider } from '../providers/product/product';
+import { ChatProvider } from '../providers/chat/chat';
+import { EmojiProvider } from '../providers/emoji/emoji';
+
+
+
 
 @NgModule({
   declarations: [
@@ -34,8 +42,12 @@ import { ProductProvider } from '../providers/product/product';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
+    PipesModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    IonicStorageModule.forRoot({
+      name:"__devapp"
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,7 +68,9 @@ import { ProductProvider } from '../providers/product/product';
     AuthProvider,
     CategoriesProvider,
     ImghandlerProvider,
-    ProductProvider
+    ProductProvider,
+    ChatProvider,
+    EmojiProvider
   ]
 })
 export class AppModule {}

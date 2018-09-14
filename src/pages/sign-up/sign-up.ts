@@ -1,7 +1,7 @@
 import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ToastController,LoadingController } from 'ionic-angular';
-
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the SignUpPage page.
  *
@@ -16,13 +16,9 @@ import { IonicPage, NavController, NavParams,ToastController,LoadingController }
 })
 export class SignUpPage {
 
-  userdetails = {
-    username:"",
-    email: "",
-    password: ""
-  }
+  userdetails: any = {};
 
-  constructor(public navCtrl: NavController, public authService: AuthProvider, public navParams: NavParams, public toastCtrl: ToastController, public loadCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public storage: Storage, public authService: AuthProvider, public navParams: NavParams, public toastCtrl: ToastController, public loadCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -32,8 +28,12 @@ export class SignUpPage {
   signup() {
 
    try{
+     this.userdetails.time = new Date().getTime();
 
-    this.authService.registerUser(this.userdetails);
+    this.authService.registerUser(this.userdetails).then(res => {
+      // this.storage.set("AppUser",this.userdetails);
+      this.navCtrl.setRoot('ChatsPage');
+    });
 
    }catch(error){
      console.log(error);

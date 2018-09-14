@@ -1,9 +1,13 @@
+import { AngularFirestore } from 'angularfire2/firestore';
+import { userProfile } from './../../models/userProfile';
 import { CategoriesPage } from './../categories/categories';
 import { AuthProvider } from './../../providers/auth/auth';
 import { Login } from './../../models/loginCreds';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { Storage } from '@ionic/storage';
+import * as firebase from 'firebase';
+ 
 /**
  * Generated class for the SignInPage page.
  *
@@ -18,21 +22,40 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SignInPage {
   creds = {} as Login;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthProvider) {
+  signedInUser;
+  constructor(public navCtrl: NavController, public afs: AngularFirestore, public storage: Storage, public navParams: NavParams, public authService: AuthProvider) {
   }
 
   ionViewDidLoad() {
    
   }
 
-  async login() {
-    try{
+   async login() {
+     try{
       await this.authService.loginUser(this.creds);
-      this.navCtrl.setRoot(CategoriesPage);
+    //   .then(res =>{
+
+    //    this.signedInUser = this.afs.collection<userProfile>('userProfile',
+    //      ref => 
+    //        ref
+    //          .where('email', '==',this.creds.email)
+       
+    //      );
+
+    //      this.storage.set("AppUser",this.signedInUser);
+    // });
+
+     this.navCtrl.setRoot("ChatsPage");
 
     } catch(error) {
-      console.log(error);
-    }
+     console.log(error);
+ 
+  }
+ }
+  
+
+  signUpPage(){
+    this.navCtrl.setRoot("SignUpPage");
   }
 
 }

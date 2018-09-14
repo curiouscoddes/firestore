@@ -14,8 +14,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthProvider {
 
-  constructor(public afireauth: AngularFireAuth, public afs: AngularFirestore) {
 
+  constructor(public afireauth: AngularFireAuth, public afs: AngularFirestore) {
+    
   }
 
   async registerUser(user): Promise<any> {
@@ -35,7 +36,8 @@ export class AuthProvider {
     await userProfileDocument.set({
       id: credentials.user.uid,
       email: user.email,
-      username: user.username
+      username: user.username,
+      time: user.time
     });
   } catch (error){
     console.error(error);
@@ -46,4 +48,14 @@ export class AuthProvider {
     return this.afireauth.auth.signInWithEmailAndPassword(Login.email,Login.password);
   }
 
+  //query for user details
+
+  getLoggedInUser(): AngularFirestoreCollection<userProfile> {
+    
+    return this.afs.collection<userProfile>('userProfile',
+    ref => 
+      ref
+        .where('id', '==',firebase.auth().currentUser.uid)
+    );
+  }
 }
