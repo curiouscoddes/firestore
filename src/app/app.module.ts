@@ -24,6 +24,7 @@ import { FilePath  } from '@ionic-native/file-path';
 import { ProductProvider } from '../providers/product/product';
 import { ChatProvider } from '../providers/chat/chat';
 import { EmojiProvider } from '../providers/emoji/emoji';
+import { CartProvider } from '../providers/cart/cart';
 
 
 
@@ -70,7 +71,8 @@ import { EmojiProvider } from '../providers/emoji/emoji';
     ImghandlerProvider,
     ProductProvider,
     ChatProvider,
-    EmojiProvider
+    EmojiProvider,
+    CartProvider
   ]
 })
 export class AppModule {}

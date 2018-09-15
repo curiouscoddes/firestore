@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { CartPage} from '../pages/cart/cart';
 
 
 @Component({
@@ -29,7 +30,9 @@ export class MyApp {
       // { title: 'List', component: ListPage }, 
       { title: 'Categories', component: CategoriesPage},
       { title: 'AddProduct',component: AddProductPage },
-      { title: 'Products', component: ProductsPage}
+      { title: 'Products', component: ProductsPage},
+      { title: 'Mycart', component: CartPage}
+
     ];
 
   }

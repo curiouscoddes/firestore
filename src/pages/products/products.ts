@@ -1,9 +1,10 @@
 import { Observable } from 'rxjs';
 import { Products } from './../../models/product.model';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductProvider } from './../../providers/product/product';
-
+import { CartProvider} from './../../providers/cart/cart';
+import { ShoppingCart} from './../../models/shopping-cart';
 /**
  * Generated class for the ProductsPage page.
  *
@@ -17,10 +18,14 @@ import { ProductProvider } from './../../providers/product/product';
   templateUrl: 'products.html',
 })
 export class ProductsPage {
+  @Input('product') product;
+  @Input('show-actions') showActions = true;
+  @Input('shopping-cart') shoppingCart: ShoppingCart;
 
   products$: Observable<Products[]>;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public productService: ProductProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+              public productService: ProductProvider, public cartService: CartProvider) {
   }
 
   ionViewDidLoad() {
@@ -29,6 +34,9 @@ export class ProductsPage {
 
   ngOnInit() {
     this.products$ =this.productService.getAllProducts(ref => ref);
+  }
+  addToCart() {
+    this.cartService.addToCart(this.product);
   }
 
 }
