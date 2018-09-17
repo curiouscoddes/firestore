@@ -35,5 +35,17 @@ export class CategoryProductsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoryProductsPage');
   }
+  addToCart() {
+    
+  }
+  chatFarmer(){
+    this.navCtrl.push('ChatsPage');
+  }
+  getItems(){
+    
+  }
+  more(){
+    
+  }
 
 }

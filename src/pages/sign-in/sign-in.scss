@@ -1,13 +1,17 @@
 page-sign-in {
     .card-background-page {
-        background-image: url('./../../assets/imgs/glowing-blue.png');
+        background-image: url('./../../assets/imgs/view.jpeg');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         background-size: cover;
-        ion-card .card {
+    }
+        ion-card.card {
             position: relative;
             text-align: center;
-            background-color: rgba(0, 0, 0, 0.3);
+            //background-color: rgba(0, 0, 0, 0.3);
+            box-shadow: none;
+            background: rgba(0,0,0,0.5);
+            border-radius: 5px;
         }
         .card-title {
             position: absolute;
@@ -24,5 +28,18 @@ page-sign-in {
             width: 100%;
             color: #fff;
         }
-    }
+        .scroll-content{
+            align-content: center;
+            text-align: center;
+        
+        }
+        ion-card{
+            box-shadow: none;
+            background: rgba(0,0,0,0.5);
+            border-radius: 5px;
+        }
+        a, p,
+        ion-card-header.card-header {
+        color: #fff!important;
+}
 }

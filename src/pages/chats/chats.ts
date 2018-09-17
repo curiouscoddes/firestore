@@ -27,7 +27,9 @@ export class ChatsPage {
   userDetails;
   doc;
 
-  constructor(public navCtrl: NavController, public authService: AuthProvider, public storage: Storage, public navParams: NavParams, public chatService: ChatProvider, public afs: AngularFirestore) {
+  constructor(public navCtrl: NavController, public authService: AuthProvider, 
+            public storage: Storage, public navParams: NavParams, public chatService: ChatProvider,
+             public afs: AngularFirestore) {
     
   }
 

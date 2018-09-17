@@ -6,7 +6,10 @@
 -->
 <ion-header>
 
-    <ion-navbar>
+    <ion-navbar color="h1color">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
         <ion-title>Products</ion-title>
     </ion-navbar>
 
@@ -14,35 +17,55 @@
 
 
 <ion-content padding>
-
+  <ion-searchbar (input)="getItems()"></ion-searchbar>
     <ion-card *ngFor="let product of products$ | async">
-        <ion-card-header>
-            {{product.name}}
-        </ion-card-header>
-        <div class="img">
-            <img src="{{ product.imgUrl }}">
+        <div style="position: relative">
+                <div class="img">
+                    <img src="{{ product.imgUrl }}">
+                </div>
+                <ion-fab right top>
+                    <button ion-fab color="hcolor" class="fab-map">
+                        <ion-icon name="pin"></ion-icon>
+                    </button>
+                </ion-fab>
         </div>
-
+        
+    
         <ion-card-content>
+          <ion-card-title>
+            {{product.name}}
+          </ion-card-title>
             <div class="description">
-                <p>{{ product.brief_description }}</p>
-
+            <p>{{ product.brief_description }}</p>
             </div>
-
-            <div class="separate">
-                <ion-row class="product_details">
-                    <ion-col>
-                        <!-- <p class="quantity">Quantity:<span> {{product.units}}</span></p> -->
-                    </ion-col>
-                    <ion-col class="price">
-                        <p class="price">Price: <span>kshs {{ product.price }}</span></p>
-                    </ion-col>
-                </ion-row>
-            </div>
-            <ion-row>
-                <button ion-button full (click)="addToCart()">Add to cart</button>
-            </ion-row>
         </ion-card-content>
-    </ion-card>
+        <ion-col class="price">
+        <p class="price">Price: <span> <b> kshs {{ product.price }}</b></span></p>
+        </ion-col>
+        <ion-row >
+          <ion-col>
+            <button ion-button clear small color="danger" icon-start>
+              <ion-icon name='information-circle'></ion-icon>
+              More
+            </button>
+          </ion-col>
+          <ion-col text-center>
+            <button ion-button clear small color="danger" icon-start (click)="chatFarmer()">
+              <ion-icon name='paper-plane'></ion-icon>
+              Enquire
+            </button>
+          </ion-col>
+          <ion-col text-right>
+            <button ion-button clear small color="danger" icon-start>
+              <ion-icon name='cart'></ion-icon>
+              add to cart
+            </button>
+          </ion-col>
+        </ion-row>
+    
+      </ion-card>
+
+
+
 
 </ion-content>

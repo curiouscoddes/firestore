@@ -4,7 +4,7 @@ page-chatroom {}
     display: flex;
     flex-direction: row;
     .chat {
-        background-color: pink;
+        background-color: #9575CD;
         border: none;
         width: 90%;
         margin-bottom: 20px;
@@ -13,6 +13,6 @@ page-chatroom {}
     }
     .chat-partner {
         margin-left: 10%;
-        background-color: skyblue;
+        background-color: #9C27B0;
     }
 }

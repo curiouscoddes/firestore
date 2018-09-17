@@ -8,6 +8,7 @@
 <ion-content padding class="card-background-page">
 
     <ion-card class="card">
+        <ion-card-header>Login</ion-card-header>
         <ion-list>
             <ion-item>
                 <ion-label floating>Email</ion-label>
@@ -19,10 +20,12 @@
                 <ion-input [(ngModel)]="creds.password" type="password"></ion-input>
             </ion-item>
             <ion-item>
-                <button style="width:100%;" (click)="login()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">SignUp</button>
+                <button style="width:100%;" (click)="login()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        <ion-icon name="log-in"></ion-icon>
+                    Login</button>
             </ion-item>
             <ion-item>
-                <p (click)="signUpPage()">Dont have an account> Sign Up</p>
+                    <button class="bottom" ion-button clear full (click)="signup()">Dont  have an account? Create an account</button> 
             </ion-item>
         </ion-list>
     </ion-card>

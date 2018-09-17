@@ -24,8 +24,7 @@ import { FilePath  } from '@ionic-native/file-path';
 import { ProductProvider } from '../providers/product/product';
 import { ChatProvider } from '../providers/chat/chat';
 import { EmojiProvider } from '../providers/emoji/emoji';
-import { CartProvider } from '../providers/cart/cart';
-
+import { MyProductsPage } from '../pages/my-products/my-products';
 
 
 
@@ -35,8 +34,9 @@ import { CartProvider } from '../providers/cart/cart';
     MyApp,
     CategoriesPage,
     HomePage,
-    AddProductPage,
-    ProductsPage
+    //AddProductPage,
+    MyProductsPage,
+    //ProductsPage
    
   ],
   imports: [
@@ -54,9 +54,10 @@ import { CartProvider } from '../providers/cart/cart';
   entryComponents: [
     MyApp,
     HomePage,
-    AddProductPage,
+    //AddProductPage,
     CategoriesPage,
-    ProductsPage
+    MyProductsPage,
+    //ProductsPage
    
   ],
   providers: [
@@ -72,7 +73,6 @@ import { CartProvider } from '../providers/cart/cart';
     ProductProvider,
     ChatProvider,
     EmojiProvider,
-    CartProvider
   ]
 })
 export class AppModule {}

@@ -31,5 +31,8 @@ export class MyProductsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyProductsPage');
   }
+  addProduct(){
+    this.navCtrl.push('AddProductPage');
+  }
 
 }

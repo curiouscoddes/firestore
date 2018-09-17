@@ -45,16 +45,17 @@ export class SignInPage {
     //      this.storage.set("AppUser",this.signedInUser);
     // });
 
-     this.navCtrl.setRoot("ChatsPage");
+     this.navCtrl.setRoot("ProductsPage");
 
     } catch(error) {
+      alert("username or password is incorrect, please try again")
      console.log(error);
  
   }
  }
   
 
-  signUpPage(){
+  signup(){
     this.navCtrl.setRoot("SignUpPage");
   }
 

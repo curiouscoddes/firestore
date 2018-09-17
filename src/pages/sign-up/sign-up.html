@@ -10,6 +10,8 @@
 <ion-content padding class="card-background-page">
 
     <ion-card class="card">
+            <ion-card-header>Sign Up </ion-card-header>
+
         <ion-list>
 
             <ion-item>
@@ -26,7 +28,10 @@
                 <ion-input [(ngModel)]="userdetails.password" type="password"></ion-input>
             </ion-item>
             <ion-item>
-                <button style="width:100%;" (click)="signup()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">SignUp</button>
+                <button style="width:100%;" (click)="signup()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Create Account </button>
+            </ion-item>
+            <ion-item>
+                    <button class="bottom" ion-button clear full (click)="login()">Already have an account? Login</button>
             </ion-item>
         </ion-list>
     </ion-card>

@@ -40,5 +40,8 @@ export class SignUpPage {
    }
 
   }
+  login(){
+    this.navCtrl.setRoot("SignInPage");
+  }
 
 }

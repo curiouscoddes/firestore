@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-    <ion-navbar>
+    <ion-navbar color="h1color">
         <ion-title>MyProducts</ion-title>
     </ion-navbar>
 
@@ -14,7 +14,29 @@
 
 
 <ion-content padding>
-
+        <ion-fab right top>
+                <button ion-fab color="hcolor" class="fab-add" (click)="addProduct()">
+                    <ion-icon name="add"></ion-icon>
+                </button>
+            </ion-fab>
+   <!--  <ion-list>
+        <ion-item>
+                <ion-thumbnail item-start>
+                        <img src="{{ product.imgUrl }}">
+                      </ion-thumbnail>
+                      <h2><b>{{product.name}}</b></h2>
+                      <p>Price: kshs {{ product.price }}</p>
+                      <button ion-button icon-only item-end>
+                            <ion-icon name="trash"></ion-icon>
+                        
+                        </button>
+                      <button ion-button icon-only item-end>
+                    <ion-icon name="create"></ion-icon>
+                    </button>
+                      
+        </ion-item>
+    </ion-list> -->
+        
     <ion-card *ngFor="let product of myProducts$ | async">
         <ion-card-header>
             {{product.name}}
@@ -32,16 +54,13 @@
             <div class="separate">
                 <ion-row class="product_details">
                     <ion-col>
-                        <!-- <p class="quantity">Quantity:<span> {{product.units}}</span></p> -->
                     </ion-col>
                     <ion-col class="price">
                         <p class="price">Price: <span>kshs {{ product.price }}</span></p>
                     </ion-col>
                 </ion-row>
             </div>
-            <ion-row>
-                <button ion-button full>Add to cart</button>
-            </ion-row>
+
         </ion-card-content>
     </ion-card>
 

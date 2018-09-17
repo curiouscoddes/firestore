@@ -33,9 +33,11 @@ export class CategoriesPage {
   }
 
   goToCategory(id){
-    this.navCtrl.setRoot('CategoryProductsPage',{categoryId: id})
+    this.navCtrl.push('CategoryProductsPage',{categoryId: id})
+  }
+  getItems(){
+    
   }
 
-  //Kuria@susan3
 
 }
