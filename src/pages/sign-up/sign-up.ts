@@ -32,7 +32,7 @@ export class SignUpPage {
 
     this.authService.registerUser(this.userdetails).then(res => {
       // this.storage.set("AppUser",this.userdetails);
-      this.navCtrl.setRoot('ChatsPage');
+      this.navCtrl.setRoot('ProductsPage');
     });
 
    }catch(error){

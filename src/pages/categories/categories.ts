@@ -33,7 +33,7 @@ export class CategoriesPage {
   }
 
   goToCategory(id){
-    this.navCtrl.push('CategoryProductsPage',{categoryId: id})
+    this.navCtrl.push('CategoryProductsPage',{ categoryId: id })
   }
   getItems(){
     

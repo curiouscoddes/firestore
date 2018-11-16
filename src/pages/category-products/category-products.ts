@@ -19,10 +19,15 @@ import * as firebase from 'firebase';
 })
 export class CategoryProductsPage {
   categoryId = null;
+  category = null;
+  categoryTitle = '';
   products$: Observable<Products[]>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public categoryService: CategoriesProvider) {
-    this.categoryId = this.navParams.get('categoryId');
+    this.category = this.navParams.get('categoryId');
+    this.categoryId = this.category.id;
+    this.categoryTitle = this.category.title;
+    console.log(this.categoryId.id)
   }
 
 

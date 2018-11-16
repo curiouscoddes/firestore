@@ -9,4 +9,7 @@ export interface Products{
     units: number;
     measurement: string;
     price: number;
+    lat?: number;
+    lng?: number;
+    location?: string;
 }

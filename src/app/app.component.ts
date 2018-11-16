@@ -1,6 +1,7 @@
 import { CategoriesPage } from './../pages/categories/categories';
 import { ProductsPage } from './../pages/products/products';
 import { AddProductPage } from './../pages/add-product/add-product';
+import { MapPage} from './../pages/map/map';
 import { SignUpPage } from './../pages/sign-up/sign-up';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -9,6 +10,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { MyProductsPage} from '../pages/my-products/my-products';
+import { timer } from 'rxjs';
+import { ChatsPage } from '../pages/chats/chats';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,9 +21,11 @@ export class MyApp {
 
   rootPage: any = "SignInPage";
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any}>;
+  showSplash = true;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, 
+              public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -30,6 +35,7 @@ export class MyApp {
       { title: 'Filter by Category', component: CategoriesPage},
       { title: 'AddProduct',component: MyProductsPage },
       { title: 'Products', component: ProductsPage},
+      { title: 'Chats', component: ChatsPage}
 
     ];
 
@@ -41,6 +47,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      timer(3000).subscribe(()=> this.showSplash = false)
     });
   }
 

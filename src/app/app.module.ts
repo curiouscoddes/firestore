@@ -25,6 +25,10 @@ import { ProductProvider } from '../providers/product/product';
 import { ChatProvider } from '../providers/chat/chat';
 import { EmojiProvider } from '../providers/emoji/emoji';
 import { MyProductsPage } from '../pages/my-products/my-products';
+import { MapPage } from '../pages/map/map';
+import { AgmCoreModule } from '@agm/core';
+import { ChatsPage } from '../pages/chats/chats';
+import { CartProvider } from '../providers/cart/cart';
 
 
 
@@ -36,7 +40,9 @@ import { MyProductsPage } from '../pages/my-products/my-products';
     HomePage,
     //AddProductPage,
     MyProductsPage,
+    MapPage,
     //ProductsPage
+    ChatsPage
    
   ],
   imports: [
@@ -46,8 +52,11 @@ import { MyProductsPage } from '../pages/my-products/my-products';
     PipesModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyASWdknOqN7lncnpegbq0JtNdWzVkcU1ug'
+    }),
     IonicStorageModule.forRoot({
-      name:"__devapp"
+      name:"__devapp",
     })
   ],
   bootstrap: [IonicApp],
@@ -57,6 +66,8 @@ import { MyProductsPage } from '../pages/my-products/my-products';
     //AddProductPage,
     CategoriesPage,
     MyProductsPage,
+    MapPage,
+    ChatsPage
     //ProductsPage
    
   ],
@@ -73,6 +84,7 @@ import { MyProductsPage } from '../pages/my-products/my-products';
     ProductProvider,
     ChatProvider,
     EmojiProvider,
+    CartProvider,
   ]
 })
 export class AppModule {}

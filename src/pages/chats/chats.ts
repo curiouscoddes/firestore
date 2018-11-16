@@ -28,8 +28,9 @@ export class ChatsPage {
   doc;
 
   constructor(public navCtrl: NavController, public authService: AuthProvider, 
-            public storage: Storage, public navParams: NavParams, public chatService: ChatProvider,
-             public afs: AngularFirestore) {
+              public storage: Storage, public navParams: NavParams,
+              public chatService: ChatProvider,
+              public afs: AngularFirestore) {
     
   }
 
@@ -42,7 +43,7 @@ export class ChatsPage {
     if (doc.exists) {
         this.chatuser = doc.data();
         console.log("Document data:",this.chatuser);
-        console.log("user email",doc.data().email);
+        console.log("user email", doc.data().email);
 
         this.storage.set("AppUser",this.chatuser);
 
@@ -61,8 +62,8 @@ export class ChatsPage {
         });
     
     } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
+      // doc.data() will be undefined in this case
+        console.log("No such document!. The document may be undefined");
     }
     }).catch(function(error) {
     console.log("Error getting document:", error);   

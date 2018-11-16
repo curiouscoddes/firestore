@@ -18,7 +18,8 @@
 
 <ion-content padding>
   <ion-searchbar (input)="getItems()"></ion-searchbar>
-    <ion-card *ngFor="let product of products$ | async">
+  <div class="allcards">
+    <ion-card class="card" *ngFor="let product of products$ | async">
         <div style="position: relative">
                 <div class="img">
                     <img src="{{ product.imgUrl }}">
@@ -38,13 +39,17 @@
             <div class="description">
             <p>{{ product.brief_description }}</p>
             </div>
+            <div>
+              seller: {{product.user_id}}
+            </div>
         </ion-card-content>
         <ion-col class="price">
         <p class="price">Price: <span> <b> kshs {{ product.price }}</b></span></p>
         </ion-col>
         <ion-row >
           <ion-col>
-            <button ion-button clear small color="danger" icon-start>
+            <button ion-button clear small color="danger" icon-start
+               (click)="moreAboutProduct(product)">
               <ion-icon name='information-circle'></ion-icon>
               More
             </button>
@@ -64,6 +69,7 @@
         </ion-row>
     
       </ion-card>
+    </div>
 
 
 

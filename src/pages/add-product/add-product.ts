@@ -4,10 +4,10 @@ import { Category } from './../../models/category';
 import { Observable } from 'rxjs';
 import { CategoriesProvider } from './../../providers/categories/categories';
 import { Component,NgZone } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
 import { Products } from '../../models/product.model';
 import * as firebase from 'firebase';
-
+import { MapPage} from './../map/map';
 /**
  * Generated class for the AddProductPage page.
  *
@@ -23,10 +23,16 @@ import * as firebase from 'firebase';
 export class AddProductPage {
   product = {} as Products;
   imgUrl = "./../../assets/imgs/upload.png";
+  placeName = "";
+  latitude = 0;
+  longitude = 0; 
 
   categories: Observable<Category[]>;
 
-  constructor(public navCtrl: NavController,public productService: ProductProvider, public navParams: NavParams,public categoryService: CategoriesProvider,public imgservice: ImghandlerProvider,public loadCtrl: LoadingController, public zone: NgZone) {
+  constructor(public navCtrl: NavController,public productService: ProductProvider, 
+              public navParams: NavParams,public categoryService: CategoriesProvider,
+              public imgservice: ImghandlerProvider,public loadCtrl: LoadingController, 
+              public zone: NgZone, public modalctrl: ModalController) {
   }
 
   ngOnInit() {
@@ -72,8 +78,12 @@ export class AddProductPage {
     const imgUrl = this.product.imgUrl;
     const category_id = this.product.category_id;
     const user_id = firebase.auth().currentUser.uid;
+    const location = this.placeName;
+    const lat = this.latitude;
+    const lng = this.longitude;
 
-    console.log({name,brief_description,description,units,measurement,price,imgUrl,category_id,user_id});
+    console.log({name,brief_description,description,units,measurement,price,imgUrl,
+                category_id,user_id,location,lat,lng});
 
     // category_id,
     // user_id,
@@ -85,11 +95,33 @@ export class AddProductPage {
     // measurement,
     // price
 
-    this.productService.addnewProduct(category_id, user_id, imgUrl,name,brief_description,description,units,measurement,price).then((res:any)=>{
+    this.productService.addnewProduct(category_id, user_id, imgUrl,name,brief_description,
+                                      description,units,measurement,price,location,lat,lng)
+                                      .then((res:any)=>{
       
       this.navCtrl.push('MyProductsPage');
+    
       
     })
   }
+   getLocation(){
+     let mapModal = this.modalctrl.create(MapPage);
+     mapModal.onDidDismiss(localeData =>{
+       if(localeData != null ){
+         this.placeName = localeData.name;
+         this.latitude = localeData.lat;
+         this.longitude = localeData.lng;
+         console.log(localeData);
+       }
+       else{
+         this.placeName = "Not Defined"
+         this.latitude = 0;
+         this.longitude = 0;
+
+
+       }
+     })
+     mapModal.present();
+   }
 
 }

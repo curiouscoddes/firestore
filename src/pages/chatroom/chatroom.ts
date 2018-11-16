@@ -28,7 +28,9 @@ export class ChatroomPage implements OnInit{
   intervalScroll;
   @ViewChild("content") content: any;
   
-  constructor(public navCtrl: NavController, public storage: Storage, public afs: AngularFirestore, public navParams: NavParams, public chatService: ChatProvider) {
+  constructor(public navCtrl: NavController, public storage: Storage,
+              public afs: AngularFirestore, public navParams: NavParams, 
+              public chatService: ChatProvider) {
     this.chatpartner = this.chatService.currentChatPartner;
   }
 

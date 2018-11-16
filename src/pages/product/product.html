@@ -15,6 +15,38 @@
 
 <ion-content padding>
  <ion-card>
-   
+   <ion-card-header>
+    {{ selectedPoduct?.name }}
+
+   </ion-card-header>
+   <div class="img">
+     <img src="{{ selectedProduct.imgUrl }}" >
+   </div>
+   <ion-card-content>
+      <p class="price"> Price Per {{selectedPoduct?.measurement}} : 
+          {{selectedPoduct?.price}}
+        </p>
+     <div class="briefDesc">
+       <p><strong>Brief Description : </strong> {{selectedProduct?.brief_description}}</p>
+     </div>
+     <div class="description"> 
+       <p><strong>Description : </strong>
+        {{selectedPoduct?.description}}
+      </p>
+     </div>
+     <div class="otherDetails">
+       <p class="quantity"> <strong>Available Quantity : </strong>
+        {{selectedProduct?.units}}  
+      </p>
+      <div class="map">
+        <p>The Product is located at: {{selectedProduct?.location}}</p>
+        <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+
+        </agm-map>
+      </div>
+     </div>
+     <button ion-button block color="h1color" > Make order</button>
+   </ion-card-content>
  </ion-card>
 </ion-content>

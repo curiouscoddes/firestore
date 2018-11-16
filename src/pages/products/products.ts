@@ -35,10 +35,12 @@ export class ProductsPage {
     
   }
   chatFarmer(){
-    this.navCtrl.push('ChatsPage');
+    this.navCtrl.push('ChatroomPage');
   }
-  getItems(){
+  moreAboutProduct(product){
+    this.navCtrl.push('ProductPage', {data:product})
     
   }
+  
 
 }

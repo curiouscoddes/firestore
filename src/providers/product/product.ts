@@ -35,6 +35,9 @@ readonly path = 'Products';
     units: number,
     measurement: string,
     price: number,
+    location: string,
+    lat: number,
+    lng: number
 
   ): Promise<void> {
     const productId: string = this.afs.createId();
@@ -50,6 +53,9 @@ readonly path = 'Products';
     units,
     measurement,
     price,
+    location,
+    lat,
+    lng
     });
   }
 
