@@ -45,7 +45,7 @@ export class SignInPage {
     //      this.storage.set("AppUser",this.signedInUser);
     // });
 
-     this.navCtrl.setRoot("ProductsPage");
+     this.navCtrl.setRoot("TabsPage");
 
     } catch(error) {
       alert("username or password is incorrect, please try again")

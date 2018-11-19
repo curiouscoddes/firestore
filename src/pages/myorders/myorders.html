@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="h1color">
     <ion-title>myorders</ion-title>
   </ion-navbar>
 
@@ -14,5 +14,27 @@
 
 
 <ion-content padding>
+  <ion-list>
+    <ion-list-header>
+      Orders i have Made
+    </ion-list-header>
+    <ion-item-sliding *ngFor="let item of ordersIMade$ | async" >
+        <ion-item>
+            <ion-thumbnail item-start>
+                <img src="{{ item.productImage }}">
+            </ion-thumbnail>
+            <h2>{{ item.productName }}</h2>
+            <p><ion-badge>pending</ion-badge></p>
+        </ion-item>
+
+        <ion-item-options side="right">
+
+            <button ion-button color="danger" >
+        <ion-icon name="close-circle"></ion-icon>
+        Cancel Order
+      </button>
+        </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 
 </ion-content>

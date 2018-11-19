@@ -12,6 +12,10 @@ import { ListPage } from '../pages/list/list';
 import { MyProductsPage} from '../pages/my-products/my-products';
 import { timer } from 'rxjs';
 import { ChatsPage } from '../pages/chats/chats';
+import { MyordersPage } from '../pages/myorders/myorders';
+import { OrderstomePage} from '../pages/orderstome/orderstome';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { TabsPage } from '../pages/tabs/tabs';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,23 +23,37 @@ import { ChatsPage } from '../pages/chats/chats';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = "SignInPage";
+  rootPage: any = "";
 
   pages: Array<{ title: string, component: any}>;
   showSplash = true;
 
   constructor(public platform: Platform, public statusBar: StatusBar, 
-              public splashScreen: SplashScreen) {
+              public splashScreen: SplashScreen, public afauth: AngularFireAuth) {
     this.initializeApp();
+
+    this.afauth.auth.setPersistence('local');
+    this.afauth.authState.subscribe(
+      (user)=>{
+        if(!user){
+          this.rootPage = 'SignInPage';
+        }else{
+          this.rootPage = 'TabsPage'
+        }
+      }
+      
+      )
 
     // used for an example of ngFor and navigation
     this.pages = [
      // { title: 'Home', component: HomePage },
       // { title: 'List', component: ListPage }, 
+      { title: 'Home', component: TabsPage},
       { title: 'Filter by Category', component: CategoriesPage},
       { title: 'AddProduct',component: MyProductsPage },
-      { title: 'Products', component: ProductsPage},
-      { title: 'Chats', component: ChatsPage}
+      // { title: 'Chats', component: ChatsPage},
+      { title: 'Orders Made to Me', component: OrderstomePage },
+      // { title: 'My Oders', component: MyordersPage }
 
     ];
 

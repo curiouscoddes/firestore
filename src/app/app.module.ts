@@ -29,6 +29,10 @@ import { MapPage } from '../pages/map/map';
 import { AgmCoreModule } from '@agm/core';
 import { ChatsPage } from '../pages/chats/chats';
 import { CartProvider } from '../providers/cart/cart';
+import { OrderProvider } from '../providers/order/order';
+import { MyordersPage} from '../pages/myorders/myorders';
+import { OrderstomePage } from '../pages/orderstome/orderstome';
+import { SignInPage } from '../pages/sign-in/sign-in';
 
 
 
@@ -42,8 +46,10 @@ import { CartProvider } from '../providers/cart/cart';
     MyProductsPage,
     MapPage,
     //ProductsPage
-    ChatsPage
-   
+    // ChatsPage,
+    MyordersPage,
+    // OrderstomePage,
+    // SignInPage
   ],
   imports: [
     BrowserModule,
@@ -53,10 +59,10 @@ import { CartProvider } from '../providers/cart/cart';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyASWdknOqN7lncnpegbq0JtNdWzVkcU1ug'
+      apiKey: 'AIzaSyBqM_dnUoYpXct09oYVNkpEhKgY4USVJnI'
     }),
     IonicStorageModule.forRoot({
-      name:"__devapp",
+      name:"__sokoFarmApp",
     })
   ],
   bootstrap: [IonicApp],
@@ -67,8 +73,11 @@ import { CartProvider } from '../providers/cart/cart';
     CategoriesPage,
     MyProductsPage,
     MapPage,
-    ChatsPage
+    // ChatsPage,
     //ProductsPage
+    MyordersPage,
+    // OrderstomePage,
+   // SignInPage
    
   ],
   providers: [
@@ -85,6 +94,7 @@ import { CartProvider } from '../providers/cart/cart';
     ChatProvider,
     EmojiProvider,
     CartProvider,
+    OrderProvider,
   ]
 })
 export class AppModule {}

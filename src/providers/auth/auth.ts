@@ -58,4 +58,7 @@ export class AuthProvider {
         .where('id', '==',firebase.auth().currentUser.uid)
     );
   }
+  logoutUser(): Promise<any>{
+    return firebase.auth().signOut();
+  }
 }

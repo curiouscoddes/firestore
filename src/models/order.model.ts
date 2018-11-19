@@ -2,12 +2,11 @@ export interface Order {
     id?: string;
     productId: string;
     productName: string;
+    productImage: string;
     buyerId: string;
     sellerId: string;
-    quantity: number;
     unitsBought: number;
-    pricePerUnit: number;
     totalPrice: number;
-    accepted: string;
-    cancelled: string;
+    accepted: boolean;
+    cancelled: boolean;
 }
